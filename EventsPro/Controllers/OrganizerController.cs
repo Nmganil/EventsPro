@@ -35,5 +35,24 @@ namespace EventsPro.Controllers
             }
         }
 
+        [HttpGet("{organizerID}")]
+        public IActionResult get(int organizerID)
+        {
+            try
+            {
+                var host = _Context.Organizer.Find(organizerID);
+                if (host == null)
+                {
+                    return NotFound($"organiser not found with ID {organizerID}");
+                }
+                return Ok(host);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 }
