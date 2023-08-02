@@ -110,5 +110,29 @@ namespace EventsPro.Controllers
            
         }
 
+        [HttpDelete]
+
+        public IActionResult delete(int organizerID)
+        {
+            try
+            {
+                var host = _Context.Organizer.Find(organizerID);
+                if (host == null)
+                {
+                    return NotFound("Orgainizer not found");
+                }
+                _Context.Organizer.Remove(host);
+                _Context.SaveChanges();
+                return Ok("Organizer deleted");
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+
+            }
+
+        }
+
     }
 }
