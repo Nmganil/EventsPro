@@ -1,4 +1,5 @@
 ﻿using EventsPro.Data;
+using EventsPro.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -52,6 +53,61 @@ namespace EventsPro.Controllers
 
                 return BadRequest(ex.Message);
             }
+        }
+        [HttpPost]
+
+        public IActionResult post(Organizer model)
+        {
+            try
+            {
+                _Context.Organizer.Add(model);
+                _Context.SaveChanges();
+                return Ok("Added new organizer");
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut]
+
+        public IActionResult put(Organizer model)
+        {
+           if(model==null || model.organizerID == 0)
+            {
+                if(model==null)
+                {
+                    return BadRequest("invalid input");
+                }
+                else if (model.organizerID == 0)
+                {
+                    return BadRequest("invalid input");
+                }
+                
+            }
+            try
+            {
+                var host = _Context.Organizer.Find(model.organizerID);
+                if (host == null)
+                {
+                    return NotFound("Organiser changes not found");
+                }
+                host.organizerName = model.organizerName;
+                host.organizerNumber = model.organizerNumber;
+                host.organizerEmail = model.organizerEmail;
+                _Context.SaveChanges();
+                return Ok(host);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+
+
+           
         }
 
     }
