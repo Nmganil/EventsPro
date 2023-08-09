@@ -11,6 +11,9 @@ namespace EventsPro.Data
         public DbSet<Event> Events { get; set; }
         public DbSet<Organizer> Organizer { get; set; }
 
+        public DbSet<Customer> Customer { get; set; }
+
+
 
 
     }
