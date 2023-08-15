@@ -33,5 +33,8 @@ namespace EventsPro.Controllers
             }
         }
 
+        [HttpGet("{CustomerID}")]
+
+
     }
 }
