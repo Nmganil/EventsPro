@@ -3,7 +3,7 @@ using EventsPro.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-// This is also changed in Branch "A"
+// This is also changed in Branch "A". Some more changes
 
 namespace EventsPro.Controllers
 {
