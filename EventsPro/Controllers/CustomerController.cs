@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
+// This is the change in branch A 
 namespace EventsPro.Controllers
 {
     [Route("api/[controller]")]
