@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 // This is also changed in Branch "A". Some more changes
-//this is branch B
+//this is branch B. Testing stash
 namespace EventsPro.Controllers
 {
     [Route("api/[controller]")]
